@@ -63,21 +63,18 @@ export class TrainingService {
   }
 
   //Trás a lista de exercicios criados pelo usuario (Bring the list of exercises created by the user)
-  async training(user: string): Promise<List> {
-    const list = await this.prisma.list.findFirst({
+  async training(user: string): Promise<List[]> {
+    const list = await this.prisma.list.findMany({
       where: {
         userId: user,
-      },
-      include: {
-        excersises: true,
       },
     });
     return list;
   }
 
   //Trás os exercicios criado pelo usuario (Bring the exercise create by the user)
-  async list_training(user: string): Promise<Exercise> {
-    const list_training = await this.prisma.exercise.findFirst({
+  async list_training(user: string): Promise<Exercise[]> {
+    const list_training = await this.prisma.exercise.findMany({
       where: {
         userId: user,
       },

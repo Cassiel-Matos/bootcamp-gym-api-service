@@ -39,7 +39,7 @@ export class TrainingController {
 
   //Trás a lista de exercicios criados pelo usuario (Bring the list of exercises created by the user)
   @Get('list_exercise/:user')
-  async training(@Param('user') user: string): Promise<List> {
+  async training(@Param('user') user: string): Promise<List[]> {
     return this.trainingService.training(user);
   }
 
@@ -57,7 +57,7 @@ export class TrainingController {
 
   //Trás os exercicios criado pelo usuario (Bring the exercise create by the user)
   @Get('list_training/:user')
-  async list_training(@Param('user') user: string): Promise<Exercise> {
+  async list_training(@Param('user') user: string): Promise<Exercise[]> {
     return this.trainingService.list_training(user);
   }
 
