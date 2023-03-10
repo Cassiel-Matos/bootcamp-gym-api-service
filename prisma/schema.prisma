@@ -18,7 +18,7 @@ generator client {
   updatedAt  DateTime    @updatedAt
   deletedAt  DateTime?
   picture        String?  
-  excersises Exercise[]
+  exercises Exercise[]
   List       List[]
 
 
@@ -44,5 +44,5 @@ model List {
   deletedAt  DateTime?
   user       User        @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   userId     String
-  excersises Exercise[]
+  exercises Exercise[]
 }

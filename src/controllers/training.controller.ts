@@ -39,7 +39,7 @@ export class TrainingController {
 
   //Cria lista de treino (Create training list)
   @Post('list')
-  async create_list(@Body() body: List): Promise<List> {
+  async create_list(@Body() body: List) {
     return this.trainingService.create_list(body);
   }
 
