@@ -29,6 +29,40 @@ export class TrainingService {
     return delete_user;
   }
 
+  //Salva as informações do usuario
+  async create_user(body) {
+    console.log(body);
+
+    const findUser = await this.prisma.user.findFirst({
+      where: {
+        id: body.id,
+      },
+    });
+
+    if (findUser)
+      return {
+        message: 'success',
+      };
+
+    const create_user = await this.prisma.user.create({
+      data: {
+        id: body.id,
+        name: body.given_name,
+        email: body.email,
+        picture: body.picture,
+      },
+    });
+
+    if (create_user)
+      return {
+        message: 'success',
+      };
+
+    return {
+      message: 'fail',
+    };
+  }
+
   /*
 
 

@@ -25,6 +25,12 @@ export class TrainingController {
   async Delete(@Param('id') id: string): Promise<User> {
     return this.trainingService.delete_user(id);
   }
+
+  //Salva as informações do usuario
+  @Post('user')
+  async create_user(@Body() body: User) {
+    return this.trainingService.create_user(body);
+  }
   /*
   
   
